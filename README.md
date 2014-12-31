@@ -10,14 +10,18 @@ Source files: src folder
 Distribution files: dist folder
 
 1) Open the src folder in terminal
+
 2) Run 'npm install' to install the node_modules/
+
 3) Run 'bower install' to install the bower_components/
 
 
 General Workflow
 ----------------
 1) Open the src folder in terminal
+
 2) Run 'gulp' to build the distribution files, start live reload and watch for changes.
+
 3) Type away! 
 
 * You will have to set up your chosen webserver to look in the dist folder, read the other sections for more info or contact me!
@@ -32,12 +36,14 @@ You should use the Gulp tasks to help during development.
 See 'Gulp Packages/ Tasks' for a full list.
 
 1) Open the src folder in terminal 
+
 2) Run 'gulp' or 'gulp dev' which will build the dist folder, watch the html/ scss/ img/ js files for changes and re-build on change. This works well with livereload: https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en
 
 
 Building the distrubtion folder
 -------------------------------
 1) Open the src folder in terminal
+
 2) Run 'gulp build' which will build the dist folder
 
 Then you can drop the folder into your website sever.
@@ -77,7 +83,7 @@ These packages are installed through NPM and have been used in the gulpfile.js f
 - strip-debug 1.0.2
 - main-bower-files 2.4.1
 
-* I have left off the 'Gulp' prefix
+I have left off the 'Gulp' prefix
 
 
 Gulp Tasks
@@ -103,24 +109,37 @@ My Setup
 --------
 Personally I am running an Apache2 local server with virtual hosts set up so I can develop in browser using 'mysite.local' with the virtual host directory pointing to the dist folder.
 
-/etc/apache2/extra/httpd.vhosts.conf:
+- /etc/apache2/extra/httpd.vhosts.conf:
 
 NameVirtualHost *
-<VirtualHost *:80>
+
+    <VirtualHost *:80>
+    
     ServerName mysite.local
+    
     ServerAlias www.mysite.local
+    
     DocumentRoot "/path/to/mysite/dist"
+    
     ErrorLog "/private/var/log/apache2/mysite-error_log"
+    
     CustomLog "/private/var/log/apache2/mysite-access_log" common
+    
     ServerAdmin tom@wilkins.co.uk
+    
     <Directory "/path/to/mysite/dist/">
+    
        Order allow,deny
+       
        Allow from all
+       
        # New directive needed in Apache 2.4.3:
+       
        Require all granted
+       
     </Directory>
 </VirtualHost>
 
-/etc/hosts:
+- /etc/hosts:
 
 127.0.0.1 mysite.local www.mysite.local
