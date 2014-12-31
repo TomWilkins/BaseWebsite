@@ -1,0 +1,37 @@
+body{
+	background: url('/img/asteroids.jpg') repeat;
+	font-family: $helvetica;
+	font-size: 2em;
+
+}
+
+main{
+	width:$max-width;
+	margin:10% auto;
+	background: rgba(black, .5);
+	border-radius: 5px;
+	box-shadow: 0 0 5px black;
+	padding:50px;
+	text-align: center;
+	color:tint($color, 30%);
+	section{
+		margin:100px auto;
+	}
+	a{
+		border:5px solid tint($color, 30%);
+		font-style:bold;
+		text-decoration: none;
+		color:tint($color, 30%);
+		padding:5px 10px;
+		border-radius: 20px;
+		@include transition(border .2s, color .2s);
+		&:hover{
+			border: 5px solid tint($color, 50%);
+			color:tint($color, 50%);
+			background-color: rgba($color, .1);
+		}
+	}
+}
+
+
+
